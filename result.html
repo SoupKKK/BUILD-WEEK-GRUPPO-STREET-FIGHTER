@@ -6,34 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Results</title>
         <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="results.css">
+        <link rel="stylesheet" href="result.css">
+
     </head>
 
 
     <body>
         <header>
             <div class="LogoEpicode">
-                <img src="/BUILD WEEK1/epicode_logo.png" alt="Logo Epicode">
+                <img src="assets/epicode_logo.png" alt="Logo Epicode">
             </div>
         </header>
         <main>
 
             <div id="titleResults">
                 <h1>Results</h1>
-                <h2>The summary of your answers:</h2>
+                <p>The summary of your answers:</p>
             </div>
 
-            <div id="centeredText">
-                <h3>Congratulations! <br> You passed the examination.</h3>
-                <p>We'll send you the certificate in few minutes. <br> Check your email (including promotions/spam
+            <article>
+                <h3>Congratulations! <br></h3>
+                <h3 id="passed">You passed the examination.</h3>
+                <p id="certificate">We'll send you the certificate in few minutes. <br> Check your email (including
+                    promotions/spam
                     folder)</p>
-            </div>
+            </article>
 
-            <div id="rateButton">
-                <button type="submit">RATE US</button>
-
-            </div>
-
+            <label for="rate-btn"></label>
+            <button type="submit" id="rate-btn">RATE US</button>
         </main>
 
 
