@@ -1,7 +1,9 @@
 body{background-color: black;}
 header img{width: 10%;  margin: 3%;}
-main{color: white; text-align: center; margin: 1% 25% 5% 25%; border: 1px solid white;}
+main{color: white; text-align: center; margin: 1% 25% 5% 25%;}
 main h1{margin-bottom: 80px;}
 li{display: inline;}
-button{width: 40%; padding: 2%; margin: 1% 1% 1% 1%; border-radius: 12px;}
 section h4{margin: 50px;}
+
+
+button{width: 40%; padding: 2%; margin: 1% 1% 1% 1%; border-radius: 12px;}
