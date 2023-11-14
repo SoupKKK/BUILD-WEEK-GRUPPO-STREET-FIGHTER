@@ -22,7 +22,7 @@ img {
 
 #titleResults {
   margin-top: 1.5rem;
-  margin-bottom: 10rem;
+  margin-bottom: 3rem;
   line-height: 1.5;
 }
 
@@ -39,8 +39,24 @@ img {
   left: 0;
 }
 #myChart {
-  width: 300%;
-  height: 300%;
+  width: 900px;
+
+}
+
+#leftText {
+  margin-left: 20%;
+  position: absolute;
+  top: 50%;
+  text-align: left;
+  left: 10px;
+}
+
+#rightText {
+  margin-right: 20%;
+  position: absolute;
+  bottom: 50%;
+  text-align: right;
+  right: 10px;
 }
 
 h1 {
@@ -49,7 +65,7 @@ h1 {
   font-weight: 500;
 }
 
-#passed {
+span {
   color: #00ffff;
 }
 
@@ -63,7 +79,6 @@ p {
 }
 
 button {
-  margin-top: 10rem;
   background-color: transparent;
   color: white;
   padding-top: 1rem;

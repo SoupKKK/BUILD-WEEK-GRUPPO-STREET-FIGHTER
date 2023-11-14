@@ -8,14 +8,11 @@ function textCenter() {
   const centerText = document.getElementById("centerText");
 
   if (rispostegiuste >= 6) {
-    centerText.innerHTML +=
-      "<h3>Congratulations! <br><span>You passed the examination.</span></h3> ";
+    centerText.innerHTML += "<h3>Congratulations! <br><span>You passed the examination.</span></h3> "
   } else {
-    centerText.innerHTML +=
-      "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";
+    centerText.innerHTML += "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";
   }
-  centerText.innerHTML +=
-    "<br><p>We'll send you the certificate<br>  in few minutes. <br> Check your email (including <br> promotions/spam folder)</p>";
+  centerText.innerHTML += "<br><p>We'll send you the certificate<br>  in few minutes. <br> Check your email (including <br> promotions/spam folder)</p>"
 }
 
 textCenter();
@@ -23,7 +20,7 @@ textCenter();
 new Chart("myChart", {
   type: "doughnut",
   data: {
-    labels: ["Corrette", "Errate"],
+    labels: ['Corrette', 'Errate'],
     datasets: [
       {
         backgroundColor: barColors,
@@ -34,17 +31,17 @@ new Chart("myChart", {
   options: {
     title: {
       display: true,
-      position: "bottom",
-      fontSize: 20,
-      fontColor: "white",
-      fontStyle: "bold",
+      position: 'bottom', 
+      fontSize: 20, 
+      fontColor: 'white', 
+      fontStyle: 'bold' 
     },
-    cutoutPercentage: 75,
+    cutoutPercentage: 75, 
     legend: {
-      display: false,
+      display: false 
     },
     tooltips: {
-      enabled: false,
-    },
+      enabled: false 
+    }
   },
 });
