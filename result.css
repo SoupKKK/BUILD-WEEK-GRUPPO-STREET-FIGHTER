@@ -30,6 +30,19 @@ img {
   margin-top: 1rem;
 }
 
+#myChartContainer {
+  display: inline-block;
+  text-align: center;
+}
+.charts #myChart {
+  top: 0;
+  left: 0;
+}
+#myChart {
+  width: 300%;
+  height: 300%;
+}
+
 h1 {
   font-family: "Outfit", sans-serif;
   font-size: 60px;
