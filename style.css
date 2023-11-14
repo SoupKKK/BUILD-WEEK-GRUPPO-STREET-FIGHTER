@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-body{
+body {
     background-image: url(assets/bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -12,15 +12,15 @@ body{
     line-height: 1.5em;
 }
 
-header{
+header {
     margin-left: 2em;
 }
 
-main{
+main {
     text-align: center;
 }
 
-h1{
+h1 {
     font-family: 'Outfit';
     font-size: 60px;
 }
@@ -29,7 +29,7 @@ input[type="radio"] {
     display: none;
 }
 
-#textInput{
+#textInput {
     background-color: transparent;
     border: none;
     border-bottom: solid 2px #d20094;
@@ -45,25 +45,25 @@ input[type="radio"] {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    background-color: #00FFFF; 
+    background-color: #00FFFF;
     border: none;
-    color: black; 
+    color: black;
     box-shadow: 0px 0px 100px 6px #00FFFF;
     display: none;
     cursor: pointer;
 }
 
-#moreInfoButton{
+#moreInfoButton {
     padding: 15px 25px;
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    background-color: #00FFFF; 
-    color: black; 
+    background-color: #00FFFF;
+    color: black;
     box-shadow: 0px 0px 100px 6px #00FFFF;
 }
 
-.star{
+.star {
     cursor: pointer;
 }

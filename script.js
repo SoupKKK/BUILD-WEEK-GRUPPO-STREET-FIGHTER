@@ -4,7 +4,7 @@ const removeButton = function () {
     const submitButton = document.getElementById('submitButton')
 
     textInput.addEventListener('input', function () {
-        // Mostra o nascondi il pulsante in base al contenuto scritto
+        //Mostra o nascondi il pulsante in base al contenuto scritto
         if (this.value.trim() !== '') {
             submitButton.style.display = 'inline-block'
         } else {
@@ -17,6 +17,7 @@ const removeButton = function () {
         // Resetta l'input e nascondi il pulsante dopo l'invio
         textInput.value = ''
         submitButton.style.display = 'none'
+        resetStars() //chiamata della funzione che resetta le stelle 
     })
 }
 
@@ -47,6 +48,13 @@ const removeFillToStars = function () {
     });
 }
 
+//funzione per resettare le stelle dopo l'invio del feedback
+const resetStars = function () {
+    const stars = document.querySelectorAll('.star')
+    stars.forEach(star => {
+        star.setAttribute('fill', '#0d1657')
+    })
+}
 
 //Sezione chiamata delle funzioni
 document.addEventListener('DOMContentLoaded', addFillToStars)
