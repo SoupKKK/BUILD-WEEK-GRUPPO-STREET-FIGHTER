@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
     <head>
@@ -25,17 +25,18 @@
             </div>
 
             <div id="myChartContainer">
-                <canvas id="myChart"></canvas>
+                <div id="leftText" class="chartText">Testo a sinistra</div>
+                <canvas id="myChart"> </canvas>
+                <div id="centerText"
+                    style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: bold;">
+                </div>
+                <div id="rightText" class="chartText">Testo a destra</div>
             </div>
 
 
 
             <article>
-                <h3>Congratulations! <br></h3>
-                <h3 id="passed">You passed the examination.</h3>
-                <p id="certificate">We'll send you the certificate in few minutes. <br> Check your email (including
-                    promotions/spam
-                    folder)</p>
+
             </article>
 
             <label for="rate-btn"></label>
