@@ -11,18 +11,24 @@
     <header>
         <img src="epicode_logo.png" alt="Logo Epicode">
         <label for="timer"></label>
+        <div id="timer-container">
+            <svg id="timer-circle" width="200" height="200">
+                <circle id="outer-circle" cx="100" cy="100" r="90"></circle>
+                <text x="100" y="110" id="timer">00:30</text>
+            </svg>
+        </div>
+        
     </header>
     <main>
-        <h1 id="question">domanda </h1>
+        
+        <h1 id="question"></h1>
         <ul>
-            <li><button>risposta 1</button></li>
-            <li><button>risposta 2</button></li>
-            <li><button>risposta 3</button></li>
-            <li><button>risposta 4</button></li>
         </ul>
         <section>
-            <h4>Question 1/10</h4>
+        
+            <h4 id="contatore"></h4>
         </section>
+        <script src="benchmark.js"></script>
     </main>
 
 

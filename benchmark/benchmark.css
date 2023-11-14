@@ -1,9 +1,65 @@
-body{background-color: black;}
-header img{width: 10%;  margin: 3%;}
-main{color: white; text-align: center; margin: 1% 25% 5% 25%;}
-main h1{margin-bottom: 80px;}
-li{display: inline;}
-section h4{margin: 50px;}
+body {
+    background-color: black;
+}
 
+header img {
+    width: 10%;
+    margin: 3%;
+    display: inline;
+}
 
-button{width: 40%; padding: 2%; margin: 1% 1% 1% 1%; border-radius: 12px;}
+main {
+    color: white;
+    text-align: center;
+    margin: 1% 25% 5% 25%;
+    position: relative;
+}
+
+#question {
+    margin-bottom: 80px;
+}
+
+li {
+    display: inline;
+}
+
+#contatore {
+    margin: 50px;
+}
+
+button {
+    width: 40%;
+    padding: 2%;
+    margin: 1% 1% 1% 1%;
+    border-radius: 12px;
+}
+
+#timer-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    color: white;
+}
+
+#timer-circle {
+    width: 100%;
+    height: 100%;
+}
+
+#outer-circle {
+    fill: none;
+    stroke: #ff0000;
+    stroke-width: 20;
+    stroke-dasharray: 628;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+#timer {
+    font-size: 24px;
+    fill: white;
+    text-align: center;
+}
