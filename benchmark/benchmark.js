@@ -169,6 +169,7 @@ const questions = [
       caricaDomanda()
     } else {
       alert('fine')
+      document.body.style.display = "none"
     }
   }
   
