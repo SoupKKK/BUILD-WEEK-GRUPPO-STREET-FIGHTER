@@ -4,7 +4,7 @@ hr{
 
 
 body{
-    background-color:  black;
+    background-image: url(../img/bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;  
     padding-top: 45px; 
@@ -13,10 +13,9 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
-#welcomePage img{
+header img{
     width: 180px;
     height: 40px;
-    align-content: center;
 }
 
 #welcomePage h1{
