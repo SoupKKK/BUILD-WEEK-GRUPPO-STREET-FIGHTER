@@ -99,99 +99,123 @@ const questions = [
   ];
 
   
-  let indiceDomandaCorrente = 0
-  let risposteCorrette = 0
-  let countdown = 30
-  let timerInterval
-  
-  const timerDisplay = document.getElementById('timer')
-  
-  const outerCircle = document.getElementById('outer-circle')
-  const circumference = 2 * Math.PI * parseFloat(outerCircle.getAttribute('r'))
+let indiceDomandaCorrente = 0
+let risposteCorrette = 0
+let countdown = 30;
+let timerInterval
 
-  function updateCircle(offset) {
-    outerCircle.style.strokeDashoffset = offset;
+const timerDisplay = document.getElementById('timer')
+
+const outerCircle = document.getElementById('outer-circle')
+const circumference = 2 * Math.PI * parseFloat(outerCircle.getAttribute('r'))
+
+function updateCircle(offset) {
+  outerCircle.style.strokeDashoffset = offset
 }
 
-   function displayTime() {
-          const minutes = Math.floor(countdown / 60);
-          let seconds = countdown % 60;
+function displayTime() {
+  const minutes = Math.floor(countdown / 60)
+  let seconds = countdown % 60
 
-          if (seconds < 10) {
-              seconds = `0${seconds}`;
-          }
+  if (seconds < 10) {
+    seconds = `0${seconds}`
+  }
 
-          document.getElementById('timer').textContent = `${minutes}:${seconds}`;
-      }
+  document.getElementById('timer').textContent = `${seconds}`
+}
 
-      function startTimer() {
-        timerInterval = setInterval(() => {
-            countdown--
-            displayTime()
-            const progress = countdown / 30
-            const offset = circumference * progress
-            updateCircle(offset)
-    
-            if (countdown <= 0) {
-                clearInterval(timerInterval)
-                
-                avanzamentoDomanda()
-            }
-        }, 1000)
+function startTimer() {
+  timerInterval = setInterval(() => {
+    countdown--;
+    displayTime();
+    const progress = countdown / 30;
+    const offset = circumference * progress;
+    updateCircle(offset);
+
+    if (countdown <= 0) {
+      clearInterval(timerInterval);
+      avanzamentoDomanda();
     }
-  
-    function gestisciRisposta(rispostaUtente, rispostaCorretta) {
-      const buttons = document.querySelectorAll('li button')
-      buttons.forEach((button) => {
-          button.disabled = true
-          if (button.textContent === rispostaCorretta) {
-              button.style.backgroundColor = 'green'
-          } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
-              button.style.backgroundColor = 'red'
-          }
-      })
-  
-      setTimeout(avanzamentoDomanda, 2000)
-  }
-  
-  function avanzamentoDomanda() {
-    indiceDomandaCorrente++
-  
-    if (indiceDomandaCorrente < questions.length) {
-      countdown = 30
-      caricaDomanda()
-    } else {
-      alert('fine')
-      document.body.style.display = "none"
+  }, 1000);
+}
+
+function gestisciRisposta(rispostaUtente, rispostaCorretta) {
+  const buttons = document.querySelectorAll('li button');
+  buttons.forEach((button) => {
+    button.disabled = true;
+    if (button.textContent === rispostaCorretta) {
+      button.style.backgroundColor = 'green';
+    } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
+      button.style.backgroundColor = 'red';
     }
+  });
+
+  setTimeout(avanzamentoDomanda, 1000);
+}
+
+function avanzamentoDomanda() {
+  indiceDomandaCorrente++;
+
+  if (indiceDomandaCorrente < questions.length) {
+    countdown = 30;
+    caricaDomanda();
+  } else {
+    alert('Fine');
+    document.body.style.display = 'none';
   }
-  
-  function caricaDomanda() {
-    const domandaCorrente = questions[indiceDomandaCorrente]
-    const h1 = document.getElementById('question')
-    const ul = document.querySelector('ul')
-    const h4 = document.getElementById('contatore')
-  
-    h1.textContent = domandaCorrente.question
-    ul.innerHTML = ''
-    h4.textContent = `Questions ${indiceDomandaCorrente + 1}/${questions.length}`
-  
-    const risposte = [domandaCorrente.correct_answer, ...domandaCorrente.incorrect_answers]
-    risposte.sort(() => Math.random() - 0.5)
-  
-    risposte.forEach((risposta) => {
-      const li = document.createElement('li')
-      const button = document.createElement('button')
-  
-      button.textContent = risposta
-      button.addEventListener('click', () => gestisciRisposta(risposta, domandaCorrente.correct_answer))
-  
-      li.appendChild(button)
-      ul.appendChild(li)
-    });
-  
-    startTimer()
+}
+
+function caricaDomanda() {
+  const domandaCorrente = questions[indiceDomandaCorrente];
+  const h1 = document.getElementById('question');
+  const ul = document.querySelector('ul');
+  const h4 = document.getElementById('contatore');
+
+  h1.textContent = domandaCorrente.question;
+  ul.innerHTML = '';
+  h4.textContent = `Domanda ${indiceDomandaCorrente + 1}/${questions.length}`;
+
+  const risposte = [domandaCorrente.correct_answer, ...domandaCorrente.incorrect_answers];
+  risposte.sort(() => Math.random() - 0.5);
+
+  risposte.forEach((risposta) => {
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+
+    button.textContent = risposta;
+    button.addEventListener('click', () => gestisciRisposta(risposta, domandaCorrente.correct_answer));
+
+    li.appendChild(button);
+    ul.appendChild(li);
+  });
+
+  startTimer();
+}
+
+function startQuiz() {
+  const radios = document.getElementsByName('difficulty');
+  let selectedDifficulty = '';
+
+  radios.forEach((radio) => {
+    if (radio.checked) {
+      selectedDifficulty = radio.value;
+    }
+  });
+
+  if (selectedDifficulty !== '') {
+    const difficultySection = document.getElementById('difficulty');
+    difficultySection.style.display = 'none';
+
+    const filteredQuestions = questions.filter((question) => question.difficulty === selectedDifficulty);
+    startGame(filteredQuestions);
+  } else {
+    alert('Seleziona una difficoltà!');
   }
-  
-  caricaDomanda()
-  
+}
+
+function startGame(questions) {
+  const mainSection = document.querySelector('main');
+  mainSection.style.display = 'block'; // Show the main section
+
+  caricaDomanda();
+}

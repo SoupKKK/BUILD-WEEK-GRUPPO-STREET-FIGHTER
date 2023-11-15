@@ -14,12 +14,20 @@
         <div id="timer-container">
             <svg id="timer-circle" width="200" height="200">
                 <circle id="outer-circle" cx="100" cy="100" r="90"></circle>
-                <text x="100" y="110" id="timer">00:30</text>
+                <text x="100" y="110" id="timer">30</text>
             </svg>
         </div>
         
     </header>
     <main>
+        <div id="difficulty">
+            <h1>SELEZIONA LA DIFFICOLTA'</h1>
+            <label for="easy">Facile</label>
+            <input type="radio" id="easy" name="difficulty" value="easy">
+            <label for="hard">Difficile</label>
+            <input type="radio" id="hard" name="difficulty" value="hard">
+            <button onclick="startQuiz()">Inizia il quiz</button>
+        </div>
         
         <h1 id="question"></h1>
         <ul>
