@@ -1,5 +1,10 @@
+hr{
+    display: none;
+}
+
+
 body{
-    background-image: url(/assets/css/bg.jpg);
+    background-color:  black;
     background-size: cover;
     background-repeat: no-repeat;  
     padding-top: 45px; 
@@ -8,13 +13,13 @@ body{
     font-family: 'Inter', sans-serif;
 }
 
-.container img{
+#welcomePage img{
     width: 180px;
     height: 40px;
     align-content: center;
 }
 
-h1{
+#welcomePage h1{
     font-family: 'Outfit', sans-serif;
     font-size: 70px ;
     font-weight: 400;
@@ -22,24 +27,24 @@ h1{
     padding-bottom: 35px;
 }
 
-h2{
+#welcomePage h2{
     padding-bottom: 15px;
     font-size: xx-large;
     color: #D20094;
     font-weight: bold;
 }
 
-p{
+#welcomePage p{
     font-size: medium;
     padding-bottom: 10px;
     opacity: 0.9;
 }
 
-b{
+#welcomePage b{
     font-weight: bold;
 }
 
-ul{
+#welcomePage ul{
     list-style-type: disc;
     padding-left: 15px;
     line-height: 1.5;
@@ -49,9 +54,6 @@ ul{
     opacity: 0.9;
 }
 
-hr{
-    display: none;
-}
 
 label{
     font-size: smaller;
@@ -94,3 +96,100 @@ label{
     cursor: pointer;
 }
 .custom-button:hover{opacity: 0.7;}
+
+#benchmarkPage{
+    display: none;
+}
+
+#benchmarkPage main {
+    text-align: center;
+    margin: 1% 25% 5% 25%;
+    position: relative;
+}
+
+#difficultyButton {
+    color: #0C113B;
+    background-color: #00FFFF;
+    padding: 15px 50px;
+    font-size: 20px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
+    border: none;
+}
+
+#difficulty h1 {
+    color:#D20094 ;
+}
+
+#question {
+    margin-bottom: 80px;
+}
+
+#benchmarkPage li {
+    display: inline;
+}
+
+#contatore {
+    margin-top: 15%;
+    font-size: 22px;
+}
+
+#contatore b {
+    color: #D20094;
+}
+
+#benchmarkPage button {
+    width: 40%;
+    padding: 2%;
+    margin: 1% 2% 2% 2%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-top: 3px 0 0 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 -4px 1.5px 0 rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+#benchmarkPage button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 -2px 8px 0 rgba(255, 255, 255, 1);
+    background-color: #D20094;
+  }
+
+#timer-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    color: white;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+#timer-circle {
+    width: 100%;
+    height: 100%;
+}
+
+#outer-circle {
+    fill: none;
+    stroke: #00FFFF;
+    stroke-width: 20;
+    stroke-dasharray: 628;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+}
+
+#timer, #timerup, #timerdown {
+    font-size: 24px;
+    fill: white;
+    text-align: center;
+}
+#timer{font-size: 80px;}
+#timerup, #timerdown{font-size: 18px;}
