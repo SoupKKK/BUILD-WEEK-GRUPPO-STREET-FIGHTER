@@ -109,6 +109,7 @@ const timerDisplay = document.getElementById('timer')
 const outerCircle = document.getElementById('outer-circle')
 const circumference = 2 * Math.PI * parseFloat(outerCircle.getAttribute('r'))
 
+//funzioni per il timer:
 function updateCircle(offset) {
   outerCircle.style.strokeDashoffset = offset
 }
@@ -117,105 +118,103 @@ function displayTime() {
   const minutes = Math.floor(countdown / 60)
   let seconds = countdown % 60
 
-  if (seconds < 10) {
-    seconds = `0${seconds}`
-  }
-
   document.getElementById('timer').textContent = `${seconds}`
 }
 
 function startTimer() {
   timerInterval = setInterval(() => {
-    countdown--;
-    displayTime();
-    const progress = countdown / 30;
-    const offset = circumference * progress;
-    updateCircle(offset);
+    countdown--
+    displayTime()
+    const progress = countdown / 30
+    const offset = circumference * progress
+    updateCircle(offset)
 
     if (countdown <= 0) {
-      clearInterval(timerInterval);
-      avanzamentoDomanda();
+      clearInterval(timerInterval)
+      avanzamentoDomanda()
     }
-  }, 1000);
+  }, 1000)
 }
 
+//funzioni per il quiz:
 function gestisciRisposta(rispostaUtente, rispostaCorretta) {
-  const buttons = document.querySelectorAll('li button');
+  const buttons = document.querySelectorAll('li button')
   buttons.forEach((button) => {
-    button.disabled = true;
+    button.disabled = true
     if (button.textContent === rispostaCorretta) {
-      button.style.backgroundColor = 'green';
+      button.style.backgroundColor = 'green'
     } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
-      button.style.backgroundColor = 'red';
+      button.style.backgroundColor = 'red'
     }
   });
 
-  setTimeout(avanzamentoDomanda, 1000);
+  setTimeout(avanzamentoDomanda, 1000)
 }
 
 function avanzamentoDomanda() {
   indiceDomandaCorrente++;
 
   if (indiceDomandaCorrente < questions.length) {
-    countdown = 30;
-    caricaDomanda();
+    clearInterval(timerInterval)
+    countdown = 30
+    caricaDomanda()
   } else {
-    alert('Fine');
-    document.body.style.display = 'none';
+    document.body.style.display = 'none'
   }
 }
 
 function caricaDomanda() {
-  const domandaCorrente = questions[indiceDomandaCorrente];
-  const h1 = document.getElementById('question');
-  const ul = document.querySelector('ul');
-  const h4 = document.getElementById('contatore');
+  const domandaCorrente = questions[indiceDomandaCorrente]
+  const h1 = document.getElementById('question')
+  const ul = document.querySelector('ul')
+  const h4 = document.getElementById('contatore')
 
-  h1.textContent = domandaCorrente.question;
-  ul.innerHTML = '';
-  h4.textContent = `Domanda ${indiceDomandaCorrente + 1}/${questions.length}`;
+  h1.textContent = domandaCorrente.question
+  ul.innerHTML = ''
+  h4.textContent = `Domanda ${indiceDomandaCorrente + 1}/${questions.length}`
 
-  const risposte = [domandaCorrente.correct_answer, ...domandaCorrente.incorrect_answers];
-  risposte.sort(() => Math.random() - 0.5);
+  const risposte = [domandaCorrente.correct_answer, ...domandaCorrente.incorrect_answers]
+  risposte.sort(() => Math.random() - 0.5)
 
   risposte.forEach((risposta) => {
-    const li = document.createElement('li');
-    const button = document.createElement('button');
+    const li = document.createElement('li')
+    const button = document.createElement('button')
 
-    button.textContent = risposta;
-    button.addEventListener('click', () => gestisciRisposta(risposta, domandaCorrente.correct_answer));
+    button.textContent = risposta
+    button.addEventListener('click', () => gestisciRisposta(risposta, domandaCorrente.correct_answer))
 
-    li.appendChild(button);
-    ul.appendChild(li);
+    li.appendChild(button)
+    ul.appendChild(li)
   });
 
-  startTimer();
+  startTimer()
 }
 
+//funzioni per il selezionamento di difficoltà:
 function startQuiz() {
-  const radios = document.getElementsByName('difficulty');
-  let selectedDifficulty = '';
+  const radios = document.getElementsByName('difficulty')
+  let selectedDifficulty = ''
 
   radios.forEach((radio) => {
     if (radio.checked) {
-      selectedDifficulty = radio.value;
+      selectedDifficulty = radio.value
     }
   });
 
   if (selectedDifficulty !== '') {
-    const difficultySection = document.getElementById('difficulty');
-    difficultySection.style.display = 'none';
+    const difficultySection = document.getElementById('difficulty')
+    difficultySection.style.display = 'none'
 
     const filteredQuestions = questions.filter((question) => question.difficulty === selectedDifficulty);
-    startGame(filteredQuestions);
+    startGame(filteredQuestions)
   } else {
-    alert('Seleziona una difficoltà!');
+    alert('Seleziona una difficoltà!')
   }
 }
 
 function startGame(questions) {
-  const mainSection = document.querySelector('main');
-  mainSection.style.display = 'block'; // Show the main section
+  const mainSection = document.querySelector('main')
+  mainSection.style.display = 'block'
 
-  caricaDomanda();
+  caricaDomanda()
 }
