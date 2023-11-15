@@ -163,13 +163,14 @@ function gestisciRisposta(rispostaUtente, rispostaCorretta) {
       if (rispostaUtente === rispostaCorretta) {
         button.style.backgroundColor = '#66cdaa';
         risposteCorrette++; 
+        
       }
     } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
       button.style.backgroundColor = '#dc143c'
     }
   
   });
-
+  
   setTimeout(avanzamentoDomanda, 800)
 }
 
@@ -245,7 +246,7 @@ function startGame(questions) {
 }
 
 //results
-console.log(risposteCorrette)
+
 let rispostesbagliate = 10 - risposteCorrette;
 let xValues = ["RisposteSbagliate", "RisposteGiuste"];
 let yValues = [rispostesbagliate, risposteCorrette];
@@ -254,7 +255,7 @@ let barColors = ["#D20094", "#00FFFF"];
 function textCenter() {
   const centerText = document.getElementById("centerText");
 
-  if (rispostegiuste >= 6) {
+  if (risposteCorrette >= 6) {
     centerText.innerHTML += "<h3>Congratulations! <br> <span>You passed the exam.</span> </h3> "
   } else {
     centerText.innerHTML += "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";

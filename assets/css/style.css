@@ -20,7 +20,7 @@ header img{
 }
 
 /* WELCOME */
-#welcomePage{display: none;}
+#welcomePage{display: block;}
 #welcomePage h1{
     font-family: 'Outfit', sans-serif;
     font-size: 70px ;
@@ -204,7 +204,7 @@ label{
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 
-#resultsPage{display: block;}
+#resultsPage{display: none;}
 
 .container {
     display: flex;
