@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="benchmark.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="epicode_logo.png" alt="Logo Epicode">
+        <label for="timer"></label>
+        <div id="timer-container">
+            <svg id="timer-circle" width="200" height="200">
+                <circle id="outer-circle" cx="100" cy="100" r="90"></circle>
+                <text x="70" y="60" id="timerup">seconds</text>
+                <text x="60" y="125" id="timer">30</text>
+                <text x="65" y="150" id="timerdown">remaining</text>
+            </svg>
+        </div>
+        
+    </header>
+    <main>
+        <div id="difficulty">
+            <h1>SELEZIONA LA DIFFICOLTA'</h1>
+            <label for="easy">Facile</label>
+            <input type="radio" id="easy" name="difficulty" value="easy">
+            <label for="hard">Difficile</label>
+            <input type="radio" id="hard" name="difficulty" value="hard">
+            <button onclick="startQuiz()">Inizia il quiz</button>
+        </div>
+        
+        <h1 id="question"></h1>
+        <ul>
+        </ul>
+        <section>
+        
+            <h4 id="contatore"></h4>
+        </section>
+        <script src="benchmark.js"></script>
+    </main>
+
+
+</body>
+</html>
