@@ -1,8 +1,8 @@
 let rispostegiuste = 10;
 let rispostesbagliate = 4 - rispostegiuste;
-let xValues = ["RisposteGiuste", "RisposteSbagliate"];
-let yValues = [rispostegiuste, rispostesbagliate];
-let barColors = ["#00FFFF", " #D20094 "];
+let xValues = ["RisposteSbagliate", "RisposteGiuste"];
+let yValues = [rispostesbagliate, rispostegiuste];
+let barColors = ["#D20094", "#00FFFF"];
 
 function textCenter() {
   const centerText = document.getElementById("centerText");
