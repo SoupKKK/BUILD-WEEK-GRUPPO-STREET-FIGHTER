@@ -1,0 +1,94 @@
+body{
+    background-image: url(../IMG/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;  
+    padding-top: 45px; 
+    padding-left: 90px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.container img{
+    width: 180px;
+    height: 40px;
+    align-content: center;
+}
+
+h1{
+    font-family: 'Outfit', sans-serif;
+    font-size: 70px ;
+    font-weight: 400;
+    padding-top: 50px;
+    padding-bottom: 35px;
+}
+
+h2{
+    padding-bottom: 15px;
+    font-size: xx-large;
+    color: #D20094;
+    font-weight: bold;
+}
+
+p{
+    font-size: medium;
+    padding-bottom: 10px;
+    opacity: 0.9;
+}
+
+b{
+    font-weight: bold;
+}
+
+ul{
+    list-style-type: disc;
+    padding-left: 15px;
+    line-height: 1.5;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    font-size: medium;
+    opacity: 0.9;
+}
+
+hr{
+    display: none;
+}
+
+label{
+    font-size: smaller;
+}
+
+
+.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+
+.custom-checkbox .checkmark {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    background-color: #0C113B;
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: #00FFFF;
+    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
+    
+}
+
+.custom-button {
+    color: #0C113B;
+    background-color: #00FFFF;
+    padding: 15px 50px;
+    margin: 2px 2px 2px 200px;
+    font-size: 20px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
+    border: none;
+}
