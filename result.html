@@ -1,52 +1,43 @@
-!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="it">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Results</title>
-        <link rel="stylesheet" href="assets/CSS/reset.css">
-        <link rel="stylesheet" href="assets/CSS/result.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/CSS/result.css">
+</head>
 
-    </head>
+<body>
+    <header>
+        <div class="LogoEpicode">
+            <img src="assets/image/epicode_logo.png" alt="Logo Epicode">
+        </div>
+    </header>
 
+    <div class="container">
+        <div class="testoSinistra">
+            <h2>Correct <br>66.7%</h2>
+        </div>
 
-    <body>
-        <header>
-            <div class="LogoEpicode">
-                <img src="assets/epicode_logo.png" alt="Logo Epicode">
-            </div>
-        </header>
-        <main>
-
-            <div id="titleResults">
-                <h1>Results</h1>
-                <p>The summary of your answers:</p>
-            </div>
-
-            <div id="myChartContainer">
-                <div id="leftText" class="chartText">Testo a sinistra</div>
-                <canvas id="myChart"> </canvas>
-                <div id="centerText"
-                    style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%); font-size: 16px; font-weight: bold;">
-                </div>
-                <div id="rightText" class="chartText">Testo a destra</div>
-            </div>
-
-
-
-            <article>
-
-            </article>
-
+        <div class="grafico">
+            <h1>Results</h1>
+            <h3>The summary of your answer:</h3> <canvas id="myChart"></canvas>
+            <div id="centerText"
+                style="position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); font-size: 14px; font-weight: bold;">
+            </div> 
             <label for="rate-btn"></label>
             <button type="submit" id="rate-btn">RATE US</button>
-        </main>
+        </div>
+        
+        <div class="testoDestra">
+            <h2>Wrong <br> 33.3%</h2>
+        </div>
+    </div>
 
 
-
-    </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="assets/JS/result.js"></script>
 
-</html>
+
+</body>

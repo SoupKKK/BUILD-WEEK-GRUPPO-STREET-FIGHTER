@@ -1,14 +1,14 @@
-let rispostegiuste = 4;
-let rispostesbagliate = 10 - rispostegiuste;
-var xValues = ["RisposteGiuste", "RisposteSbagliate"];
-var yValues = [rispostegiuste, rispostesbagliate];
-var barColors = ["#00FFFF", " #D20094 "];
+let rispostegiuste = 10;
+let rispostesbagliate = 4 - rispostegiuste;
+let xValues = ["RisposteGiuste", "RisposteSbagliate"];
+let yValues = [rispostegiuste, rispostesbagliate];
+let barColors = ["#00FFFF", " #D20094 "];
 
 function textCenter() {
   const centerText = document.getElementById("centerText");
 
   if (rispostegiuste >= 6) {
-    centerText.innerHTML += "<h3>Congratulations! <br><span>You passed the examination.</span></h3> "
+    centerText.innerHTML += "<h3>Congratulations! <br> <span>You passed the exam.</span> </h3> "
   } else {
     centerText.innerHTML += "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";
   }
