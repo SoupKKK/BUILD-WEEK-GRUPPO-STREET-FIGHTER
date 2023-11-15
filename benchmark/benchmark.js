@@ -141,25 +141,18 @@ const questions = [
     }
   
     function gestisciRisposta(rispostaUtente, rispostaCorretta) {
-      const p = document.createElement('p')
-      const check = document.createElement('span')
-      check.id = 'CheckMsg'
-      if (rispostaUtente === rispostaCorretta) {
-          check.textContent = "RISPOSTA CORRETTA +1"
-          risposteCorrette++
-      } else {
-          check.textContent = "RISPOSTA SBAGLIATA"
-      }
-      p.appendChild(check);
-      const section = document.querySelector('section')
-      const existingMessage = document.getElementById('CheckMsg')
-      if (existingMessage) {
-        section.removeChild(existingMessage.parentNode)
-      }
-      section.insertBefore(p, section.firstChild)
-      clearInterval(timerInterval)
-      avanzamentoDomanda()
-    }
+      const buttons = document.querySelectorAll('li button')
+      buttons.forEach((button) => {
+          button.disabled = true
+          if (button.textContent === rispostaCorretta) {
+              button.style.backgroundColor = 'green'
+          } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
+              button.style.backgroundColor = 'red'
+          }
+      })
+  
+      setTimeout(avanzamentoDomanda, 2000)
+  }
   
   function avanzamentoDomanda() {
     indiceDomandaCorrente++
