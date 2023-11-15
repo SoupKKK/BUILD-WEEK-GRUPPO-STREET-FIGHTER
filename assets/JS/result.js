@@ -1,5 +1,5 @@
-let rispostegiuste = 10;
-let rispostesbagliate = 4 - rispostegiuste;
+let rispostegiuste = 8;
+let rispostesbagliate = 10 - rispostegiuste;
 let xValues = ["RisposteSbagliate", "RisposteGiuste"];
 let yValues = [rispostesbagliate, rispostegiuste];
 let barColors = ["#D20094", "#00FFFF"];
