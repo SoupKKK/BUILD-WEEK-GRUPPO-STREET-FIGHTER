@@ -73,10 +73,42 @@
             
                 <h4 id="contatore"></h4>
             </section>
-            <script src="benchmark.js"></script>
+
         </main>
     </div>
+
+    <!-- RESULTS -->
+    <div id="resultsPage">
+        <div class="container">
+            <div class="testoSinistra">
+                <h2>Correct <br>66.7%</h2>
+            </div>
     
+            <div class="grafico">
+                <h1>Results</h1>
+                <h3>The summary of your answer:</h3> <canvas id="myChart"></canvas>
+                <div id="centerText"
+                    style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); font-size: 14px; font-weight: bold;">
+                </div> 
+                <label for="rate-btn"></label>
+                <button type="submit" id="rate-btn">RATE US</button>
+            </div>
+            
+            <div class="testoDestra">
+                <h2>Wrong <br> 33.3%</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="assets/JS/result.js"></script>
+
+
+</body>
+    </div>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="assets/js/script.js"></script>
+    
 </body>
 </html>

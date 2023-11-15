@@ -3,13 +3,12 @@
 function checkCheckbox() {
     const promiseCheckbox = document.getElementById('promise')
     if (promiseCheckbox.checked) {
-        console.log("La checkbox è spuntata. Puoi procedere!")
         let welcomePage = document.getElementById("welcomePage")
         welcomePage.style.display = 'none'
         let benchmarkPage = document.getElementById("benchmarkPage")
         benchmarkPage.style.display = 'block'
     } else {
-        alert("Per procedere, spunta la casella 'I promise...'")
+        alert("Per procedere, spunta la casella")
         return true
     }
 }
@@ -117,7 +116,6 @@ const questions = [
 
   
 let indiceDomandaCorrente = 0
-let risposteCorrette = 0
 let countdown = 30;
 let timerInterval
 
@@ -154,18 +152,25 @@ function startTimer() {
 }
 
 //funzioni per il quiz:
+
+let risposteCorrette = 0
+
 function gestisciRisposta(rispostaUtente, rispostaCorretta) {
   const buttons = document.querySelectorAll('li button')
   buttons.forEach((button) => {
     button.disabled = true
     if (button.textContent === rispostaCorretta) {
-      button.style.backgroundColor = '#66cdaa'
+      if (rispostaUtente === rispostaCorretta) {
+        button.style.backgroundColor = '#66cdaa';
+        risposteCorrette++; 
+      }
     } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
       button.style.backgroundColor = '#dc143c'
     }
+  
   });
 
-  setTimeout(avanzamentoDomanda, 1000)
+  setTimeout(avanzamentoDomanda, 800)
 }
 
 function avanzamentoDomanda() {
@@ -176,7 +181,10 @@ function avanzamentoDomanda() {
     countdown = 30
     caricaDomanda()
   } else {
-    document.body.style.display = 'none'
+    let benchmarkPage = document.getElementById("benchmarkPage")
+    benchmarkPage.style.display = 'none'
+    let resultsPage = document.getElementById("resultsPage")
+    resultsPage.style.display = 'block'
   }
 }
 
@@ -235,3 +243,52 @@ function startGame(questions) {
 
   caricaDomanda()
 }
+
+//results
+console.log(risposteCorrette)
+let rispostesbagliate = 10 - risposteCorrette;
+let xValues = ["RisposteSbagliate", "RisposteGiuste"];
+let yValues = [rispostesbagliate, risposteCorrette];
+let barColors = ["#D20094", "#00FFFF"];
+
+function textCenter() {
+  const centerText = document.getElementById("centerText");
+
+  if (rispostegiuste >= 6) {
+    centerText.innerHTML += "<h3>Congratulations! <br> <span>You passed the exam.</span> </h3> "
+  } else {
+    centerText.innerHTML += "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";
+  }
+  centerText.innerHTML += "<br><p>We'll send you the certificate<br>  in few minutes. <br> Check your email (including <br> promotions/spam folder)</p>"
+}
+
+textCenter();
+
+new Chart("myChart", {
+  type: "doughnut",
+  data: {
+    labels: ['Corrette', 'Errate'],
+    datasets: [
+      {
+        backgroundColor: barColors,
+        data: yValues,
+      },
+    ],
+  },
+  options: {
+    title: {
+      display: true,
+      position: 'bottom', 
+      fontSize: 20, 
+      fontColor: 'white', 
+      fontStyle: 'bold' 
+    },
+    cutoutPercentage: 75, 
+    legend: {
+      display: false 
+    },
+    tooltips: {
+      enabled: false 
+    }
+  },
+});
