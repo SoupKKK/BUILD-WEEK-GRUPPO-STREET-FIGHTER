@@ -171,7 +171,7 @@ function caricaDomanda() {
 
   h1.textContent = domandaCorrente.question
   ul.innerHTML = ''
-  h4.textContent = `Domanda ${indiceDomandaCorrente + 1}/${questions.length}`
+  h4.innerHTML = `QUESTION ${indiceDomandaCorrente + 1}/<b>${questions.length}<b>`
 
   const risposte = [domandaCorrente.correct_answer, ...domandaCorrente.incorrect_answers]
   risposte.sort(() => Math.random() - 0.5)
