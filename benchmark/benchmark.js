@@ -142,9 +142,9 @@ function gestisciRisposta(rispostaUtente, rispostaCorretta) {
   buttons.forEach((button) => {
     button.disabled = true
     if (button.textContent === rispostaCorretta) {
-      button.style.backgroundColor = 'green'
+      button.style.backgroundColor = '#66cdaa'
     } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
-      button.style.backgroundColor = 'red'
+      button.style.backgroundColor = '#dc143c'
     }
   });
 

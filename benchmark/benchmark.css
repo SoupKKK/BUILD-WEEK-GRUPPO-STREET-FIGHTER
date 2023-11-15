@@ -51,8 +51,22 @@ button {
     width: 40%;
     padding: 2%;
     margin: 1% 1% 1% 1%;
-    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-top: 3px 0 0 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 -4px 1.5px 0 rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 -2px 8px 0 rgba(255, 255, 255, 1);
+    background-color: #D20094;
+  }
 
 #timer-container {
     position: absolute;
