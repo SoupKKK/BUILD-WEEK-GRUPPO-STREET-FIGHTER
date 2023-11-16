@@ -32,7 +32,7 @@ const questions = [
       type: "multiple",
       difficulty: "easy",
       question:
-        "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+        "In the programming language Java, which of these keywords would you put on a variable to make sure it doesnt get modified?",
       correct_answer: "Final",
       incorrect_answers: ["Static", "Private", "Public"],
     },
@@ -168,10 +168,10 @@ function gestisciRisposta(rispostaUtente, rispostaCorretta) {
     } else if (button.textContent === rispostaUtente && rispostaUtente !== rispostaCorretta) {
       button.style.backgroundColor = '#dc143c'
     }
-  
+    return risposteCorrette
   });
   
-  setTimeout(avanzamentoDomanda, 800)
+  setTimeout(avanzamentoDomanda, 0)
 }
 
 function avanzamentoDomanda() {
@@ -182,12 +182,74 @@ function avanzamentoDomanda() {
     countdown = 30
     caricaDomanda()
   } else {
+    //result page code
+
     let benchmarkPage = document.getElementById("benchmarkPage")
     benchmarkPage.style.display = 'none'
     let resultsPage = document.getElementById("resultsPage")
     resultsPage.style.display = 'block'
-  }
-}
+    let rispostesbagliate = 10 - risposteCorrette;
+    console.log(rispostesbagliate)
+    let xValues = ["RisposteSbagliate", "RisposteGiuste"];
+    let yValues = [rispostesbagliate, risposteCorrette];
+    let barColors = ["#D20094", "#00FFFF"];
+
+    //TESTO CENTRALE DEL GRAFICO
+    function textCenter() {
+      const centerText = document.getElementById("centerText");
+
+      if (risposteCorrette >= 6) {
+        centerText.innerHTML += "<h3>Congratulations! <br> <span>You passed the exam.</span> </h3> "
+      } else {
+        centerText.innerHTML += "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";
+      }
+      centerText.innerHTML += "<br><p>We'll send you the certificate<br>  in few minutes. <br> Check your email (including <br> promotions/spam folder)</p>"
+    }
+
+    textCenter();
+
+    //TESTO A DESTRA E SINISTRA DEL GRAFICO
+    let percentualerisposteCorrette = risposteCorrette * 10
+    let percentualerisposteSbagliate = rispostesbagliate * 10
+    const rightText = document.getElementById("testoDestra")
+    const leftText = document.getElementById("testoSinistra")
+    function rightleftText() {
+      leftText.innerHTML += `<div><h2>Correct<br><b>${percentualerisposteCorrette}%</b></h2>  <h4><br>${risposteCorrette}/10 questions</h4></div>`
+      rightText.innerHTML += `<div><h2>Wrong <br> <b>${percentualerisposteSbagliate}%</b></h2> <h4><br>${rispostesbagliate}/10 questions</h4></div>`
+    }
+    rightleftText()
+
+    //ARRAY GRAFICO
+    new Chart("myChart", {
+      type: "doughnut",
+      data: {
+        labels: ['Corrette', 'Errate'],
+        datasets: [
+          {
+            backgroundColor: barColors,
+            data: yValues,
+          },
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          position: 'bottom', 
+          fontSize: 20, 
+          fontColor: 'white', 
+          fontStyle: 'bold' 
+        },
+        cutoutPercentage: 75, 
+        legend: {
+          display: false 
+        },
+        tooltips: {
+          enabled: false 
+        }
+      },
+    });
+      }
+    }
 
 function caricaDomanda() {
   const domandaCorrente = questions[indiceDomandaCorrente]
@@ -245,51 +307,5 @@ function startGame(questions) {
   caricaDomanda()
 }
 
-//results
+//FEEDBACK
 
-let rispostesbagliate = 10 - risposteCorrette;
-let xValues = ["RisposteSbagliate", "RisposteGiuste"];
-let yValues = [rispostesbagliate, risposteCorrette];
-let barColors = ["#D20094", "#00FFFF"];
-
-function textCenter() {
-  const centerText = document.getElementById("centerText");
-
-  if (risposteCorrette >= 6) {
-    centerText.innerHTML += "<h3>Congratulations! <br> <span>You passed the exam.</span> </h3> "
-  } else {
-    centerText.innerHTML += "<h3>I am sorry <br> <span>You didn't manage<br> to pass the examination.</span></h3>";
-  }
-  centerText.innerHTML += "<br><p>We'll send you the certificate<br>  in few minutes. <br> Check your email (including <br> promotions/spam folder)</p>"
-}
-
-textCenter();
-
-new Chart("myChart", {
-  type: "doughnut",
-  data: {
-    labels: ['Corrette', 'Errate'],
-    datasets: [
-      {
-        backgroundColor: barColors,
-        data: yValues,
-      },
-    ],
-  },
-  options: {
-    title: {
-      display: true,
-      position: 'bottom', 
-      fontSize: 20, 
-      fontColor: 'white', 
-      fontStyle: 'bold' 
-    },
-    cutoutPercentage: 75, 
-    legend: {
-      display: false 
-    },
-    tooltips: {
-      enabled: false 
-    }
-  },
-});
