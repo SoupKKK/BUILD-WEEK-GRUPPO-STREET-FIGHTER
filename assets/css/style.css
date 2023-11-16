@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 hr{
     display: none;
 }
 
+button {
+    color: #0C113B;
+    background-color: #00FFFF;
+    padding: 15px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
+    border: none;
+    cursor: pointer;
+}
 
 body{
     background-image: url(../img/bg.jpg);
@@ -10,9 +24,13 @@ body{
     padding-top: 45px; 
     padding-left: 90px;
     color: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter'
 }
 
+h1{
+    font-family:"Outfit", sans-serif;
+    font-size: 60px;
+}
 
 header img{
     width: 180px;
@@ -22,8 +40,6 @@ header img{
 /* WELCOME */
 #welcomePage{display: block;}
 #welcomePage h1{
-    font-family: 'Outfit', sans-serif;
-    font-size: 70px ;
     font-weight: 400;
     padding-top: 50px;
     padding-bottom: 35px;
@@ -86,16 +102,7 @@ label{
 }
 
 .custom-button {
-    color: #0C113B;
-    background-color: #00FFFF;
-    padding: 15px 50px;
     margin: 2px 2px 2px 200px;
-    font-size: 20px; 
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
-    border: none;
-    cursor: pointer;
 }
 .custom-button:hover{opacity: 0.7;}
 
@@ -111,16 +118,6 @@ label{
     position: relative;
 }
 
-#difficultyButton {
-    color: #0C113B;
-    background-color: #00FFFF;
-    padding: 15px 50px;
-    font-size: 20px; 
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
-    border: none;
-}
 
 #difficulty h1 {
     color:#D20094 ;
@@ -144,13 +141,14 @@ label{
 }
 
 #benchmarkPage button {
+    text-transform: none;
     width: 40%;
     padding: 2%;
     margin: 1% 2% 2% 2%;
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
     border: none;
-    border-top: 3px 0 0 1px solid rgba(255, 255, 255, 0.6);
+    border-top:  1.5px solid rgba(255, 255, 255, 0.6);
     border-left: 3px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 -4px 1.5px 0 rgba(255, 255, 255, 0.7);
     border-radius: 50px;
@@ -158,6 +156,7 @@ label{
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
+
 #benchmarkPage button:hover {
     transform: translateY(2px);
     box-shadow: 0 -2px 8px 0 rgba(255, 255, 255, 1);
@@ -167,7 +166,7 @@ label{
 #timer-container {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 5px;
     width: 200px;
     height: 200px;
     text-align: center;
@@ -200,9 +199,6 @@ label{
 
 
 /* RESULTS */
-@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
 
 #resultsPage{display: none;}
 
@@ -230,8 +226,6 @@ label{
 }
 
 #resultsPage h1 {
-  font-family: "Outfit", sans-serif;
-  font-size: 60px;
   font-weight: 500;
   margin: 0;
 }
@@ -243,8 +237,7 @@ label{
   margin-bottom: 0px;
 }
 #resultsPage h4{
-    font-family: "Outfit", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     margin-top: 0px;
   }
@@ -253,9 +246,12 @@ label{
   text-align: center;
 }
 
+#centerText h3 {
+    font-size: 22px;
+}
+
 #resultsPage p {
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.928);
 
 }
@@ -291,3 +287,60 @@ label{
 }
 
 /* FEEDBACK */
+#feedbackPage{display: none;}
+
+#feedbackPage main {
+    text-align: center;
+    line-height: 1.5em;
+}
+
+
+#feedbackPage input[type="radio"] {
+    display: none;
+}
+
+#feedbackPage h1{
+    margin: 5% 5% 2.5% 5%;
+}
+
+#feedbackPage p{
+    margin-bottom: 2%;
+    font-size: 26px;
+}
+
+#FedbackOutput{
+    margin-top: 5%;
+}
+
+#textInput {
+    margin: 2%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px #d20094;
+    margin-bottom: 4em;
+    width: 35%;
+    padding: 8px;
+    color: white;
+}
+
+#submitButton {
+    margin-left: 20px;
+    padding: 10px 20px;
+}
+
+#moreInfoButton {
+    color: #0C113B;
+    background-color: #00FFFF;
+    padding: 15px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px #00FFFF, 0 0 40px #00FFFF;
+    border: none;
+    cursor: pointer;
+    padding: 15px 25px;
+}
+
+.star {
+    cursor: pointer;
+}
