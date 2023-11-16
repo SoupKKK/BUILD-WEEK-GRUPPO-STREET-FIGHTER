@@ -343,6 +343,7 @@ label{
     border: none;
     cursor: pointer;
     padding: 15px 25px;
+    text-decoration: none;
 }
 
 .star {
