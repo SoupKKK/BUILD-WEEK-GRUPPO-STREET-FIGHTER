@@ -349,3 +349,19 @@ label{
 .star {
     cursor: pointer;
 }
+
+#feedbackUtente{
+    display: none;
+    margin: 4% 40% 3% 40%;
+    padding: 1%;
+    border: 2px solid white;
+}
+
+#feedbackUtente img {
+    margin-top: 20px;
+    width: 30%;
+}
+
+#feedbackUtente hr{
+    display: block;
+}

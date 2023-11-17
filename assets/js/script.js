@@ -337,7 +337,7 @@ const removeButton = function () {
   });
 
   submitButton.addEventListener('click', function () {
-      alert('Feedback inviato correttamente')
+
       // Resetta l'input e nascondi il pulsante dopo l'invio
       textInput.value = ''
       submitButton.style.display = 'none'
@@ -384,3 +384,33 @@ const resetStars = function () {
 document.addEventListener('DOMContentLoaded', addFillToStars)
 document.addEventListener('DOMContentLoaded', removeFillToStars)
 document.addEventListener('DOMContentLoaded', removeButton)
+
+let submitButton = document.getElementById('submitButton');
+let textInput = document.getElementById('textInput');
+let inputTextValue = '';
+
+// Aggiungi un listener per l'evento click sul pulsante di invio
+submitButton.addEventListener('click', function() {
+    // Ottieni tutte le radio buttons
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    var selectedValue = '';
+
+    radioButtons.forEach(function(radio) {
+        if (radio.checked) {
+            selectedValue = radio.value; // Ottieni il valore della radio selezionata
+        }
+    });
+    let displayFeedbackdiv = document.getElementById("feedbackUtente")
+    displayFeedbackdiv.style.display = "block"
+  
+    console.log('Valore selezionato:', selectedValue);
+    inputTextValue = textInput.value;
+
+    if(selectedValue){
+      feedbackUtente.innerHTML += `<img src="assets/img/person-circle-outline.svg" alt="profile pic"><h3>Anonymous</h3> ${selectedValue} stelle <br> ${inputTextValue} <br><hr>`;
+    }
+    else{
+      feedbackUtente.innerHTML += `<img src="assets/img/person-circle-outline.svg" alt="profile pic"><h3>Anonymous</h3> 0 stelle <br> ${inputTextValue} <br><hr>`;
+    }
+});
+
