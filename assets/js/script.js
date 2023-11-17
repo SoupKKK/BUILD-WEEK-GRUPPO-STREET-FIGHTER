@@ -7,19 +7,28 @@ function noneResults(){
 }
 
 //welcome
-
+let welcomeButton = document.getElementById("welcomeButton")
+welcomeButton.style.display = "none"
+let promiseCheckbox = document.getElementById('promise')
 function checkCheckbox() {
-    const promiseCheckbox = document.getElementById('promise')
+    
     if (promiseCheckbox.checked) {
         let welcomePage = document.getElementById("welcomePage")
         welcomePage.style.display = 'none'
         let benchmarkPage = document.getElementById("benchmarkPage")
         benchmarkPage.style.display = 'block'
-    } else {
-        alert("Per procedere, spunta la casella")
-        return true
     }
 }
+
+function displayButton() {
+  if (promiseCheckbox.checked){
+    welcomeButton.style.display = "block"
+  }
+  else{
+    welcomeButton.style.display = "none"
+  }
+}
+promiseCheckbox.addEventListener('change', displayButton)
 
 //benchmark
 const questions = [
