@@ -200,7 +200,6 @@ function avanzamentoDomanda() {
     countdown = 30
     caricaDomanda()
   } else {
-
     function stopTimer() {
       clearInterval(timerInterval)
       isTimerRunning = false
@@ -304,28 +303,21 @@ function caricaDomanda() {
 }
 
 //funzioni per il selezionamento di difficoltà:
-function startQuiz() {
- 
-  const radios = document.getElementsByName('difficulty')
-  let selectedDifficulty = ''
-
-  radios.forEach((radio) => {
-    if (radio.checked) {
-      selectedDifficulty = radio.value
-    }
-  });
-
+function startQuiz(difficult) {
+  
     timerNone.style.display = "block"  
     const difficultySection = document.getElementById('difficulty')
     difficultySection.style.display = 'none'
-
-    const filteredQuestions = questions.filter((question) => question.difficulty === selectedDifficulty);
-    startGame(filteredQuestions)
+    
+    const filteredQuestions = questions.filter((question) => question.difficulty === difficult);
+    startGame(filteredQuestions);
 }
 
 function startGame(questions) {
   const mainSection = document.querySelector('main')
   mainSection.style.display = 'block'
+
+  indiceDomandaCorrente = 0
 
   caricaDomanda()
 }
