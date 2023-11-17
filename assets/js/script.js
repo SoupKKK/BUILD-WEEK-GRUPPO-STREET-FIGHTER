@@ -407,19 +407,21 @@ submitButton.addEventListener('click', function() {
     radioButtons.forEach(function(radio) {
         if (radio.checked) {
             selectedValue = radio.value; // Ottieni il valore della radio selezionata
-        }
-    });
-    let displayFeedbackdiv = document.getElementById("feedbackUtente")
-    displayFeedbackdiv.style.display = "block"
+            let displayFeedbackdiv = document.getElementById("feedbackUtente")
+            displayFeedbackdiv.style.display = "block"
   
     console.log('Valore selezionato:', selectedValue);
     inputTextValue = textInput.value;
 
     if(selectedValue){
-      feedbackUtente.innerHTML += `<img src="assets/img/person-circle-outline.svg" alt="profile pic"><h3>Anonymous</h3> ${selectedValue} stelle <br> ${inputTextValue} <br><hr>`;
+      feedbackUtente.innerHTML = `<img src="assets/img/person-circle-outline.svg" alt="profile pic"><h3>Anonymous</h3> ${selectedValue} stelle <br> ${inputTextValue} <br><hr>`;
     }
     else{
-      feedbackUtente.innerHTML += `<img src="assets/img/person-circle-outline.svg" alt="profile pic"><h3>Anonymous</h3> 0 stelle <br> ${inputTextValue} <br><hr>`;
+      feedbackUtente.innerHTML = `<img src="assets/img/person-circle-outline.svg" alt="profile pic"><h3>Anonymous</h3> 0 stelle <br> ${inputTextValue} <br><hr>`;
     }
+        }
+    
+    });
+    
 });
 
