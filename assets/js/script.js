@@ -212,7 +212,7 @@ function avanzamentoDomanda() {
     benchmarkPage.style.display = 'none'
     let resultsPage = document.getElementById("resultsPage")
     resultsPage.style.display = 'block'
-    let rispostesbagliate = 10 - risposteCorrette;
+    let rispostesbagliate = questions.length - risposteCorrette;
     console.log(rispostesbagliate)
     let xValues = ["RisposteSbagliate", "RisposteGiuste"];
     let yValues = [rispostesbagliate, risposteCorrette];
@@ -233,13 +233,13 @@ function avanzamentoDomanda() {
     textCenter();
 
     //TESTO A DESTRA E SINISTRA DEL GRAFICO
-    let percentualerisposteCorrette = risposteCorrette * 10
-    let percentualerisposteSbagliate = rispostesbagliate * 10
+    let percentualerisposteCorrette = risposteCorrette * 100/questions.length
+    let percentualerisposteSbagliate = rispostesbagliate * 100/questions.length
     const rightText = document.getElementById("testoDestra")
     const leftText = document.getElementById("testoSinistra")
     function rightleftText() {
-      leftText.innerHTML += `<div><h2>Correct<br><b>${percentualerisposteCorrette}%</b></h2>  <h4><br>${risposteCorrette}/10 questions</h4></div>`
-      rightText.innerHTML += `<div><h2>Wrong <br> <b>${percentualerisposteSbagliate}%</b></h2> <h4><br>${rispostesbagliate}/10 questions</h4></div>`
+      leftText.innerHTML += `<div><h2>Correct<br><b>${percentualerisposteCorrette}%</b></h2>  <h4><br>${risposteCorrette}/${questions.length} questions</h4></div>`
+      rightText.innerHTML += `<div><h2>Wrong <br> <b>${percentualerisposteSbagliate}%</b></h2> <h4><br>${rispostesbagliate}/${questions.length} questions</h4></div>`
     }
     rightleftText()
 
